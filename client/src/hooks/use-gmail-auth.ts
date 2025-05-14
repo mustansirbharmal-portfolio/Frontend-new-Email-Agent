@@ -8,6 +8,7 @@ export function useGmailAuth() {
   const { user, updateUserGmailStatus } = useAuth();
   const { toast } = useToast();
   const [isConnecting, setIsConnecting] = useState(false);
+  const [lastChecked, setLastChecked] = useState<Date | null>(null);
 
   // Query to check Gmail connection status
   const { 
