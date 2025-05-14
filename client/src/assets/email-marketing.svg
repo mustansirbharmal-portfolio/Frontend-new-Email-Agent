@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Background Design Elements -->
+  <circle cx="700" cy="100" r="60" fill="#e0e7ff" opacity="0.6"/>
+  <circle cx="100" cy="500" r="80" fill="#e0f2fe" opacity="0.6"/>
+  <path d="M0 350 Q 400 250 800 350 L 800 600 L 0 600 Z" fill="#f0f9ff" opacity="0.8"/>
+  
+  <!-- Mail Icon -->
+  <rect x="250" y="100" width="300" height="200" rx="10" fill="#3b82f6"/>
+  <path d="M250 120 L 400 220 L 550 120" stroke="white" stroke-width="8"/>
+  
+  <!-- Stats/Charts Design -->
+  <rect x="300" y="350" width="200" height="150" rx="5" fill="white" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="320" y="380" width="30" height="100" rx="2" fill="#3b82f6"/>
+  <rect x="360" y="400" width="30" height="80" rx="2" fill="#3b82f6"/>
+  <rect x="400" y="370" width="30" height="110" rx="2" fill="#3b82f6"/>
+  <rect x="440" y="420" width="30" height="60" rx="2" fill="#3b82f6"/>
+  
+  <!-- People/Recipients Design -->
+  <circle cx="180" cy="320" r="40" fill="#bfdbfe"/>
+  <circle cx="180" cy="280" r="20" fill="#bfdbfe"/>
+  
+  <circle cx="620" cy="320" r="40" fill="#bfdbfe"/>
+  <circle cx="620" cy="280" r="20" fill="#bfdbfe"/>
+  
+  <!-- Connection Lines -->
+  <path d="M250 200 L 180 280" stroke="#3b82f6" stroke-width="3" stroke-dasharray="5,5"/>
+  <path d="M550 200 L 620 280" stroke="#3b82f6" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <!-- Schedule/Calendar Element -->
+  <rect x="100" y="150" width="100" height="100" rx="5" fill="white" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="100" y1="180" x2="200" y2="180" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="130" y1="150" x2="130" y2="250" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="170" y1="150" x2="170" y2="250" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="130" cy="210" r="10" fill="#3b82f6"/>
+  <circle cx="170" cy="210" r="10" fill="#3b82f6"/>
+  
+  <!-- Text Elements -->
+  <text x="400" y="180" font-family="Arial" font-size="24" font-weight="bold" fill="white" text-anchor="middle">EMAIL MARKETING</text>
+  <text x="400" y="320" font-family="Arial" font-size="18" font-weight="bold" fill="#3b82f6" text-anchor="middle">ANALYTICS &amp; INSIGHTS</text>
+  <text x="180" cy="380" font-family="Arial" font-size="16" fill="#3b82f6" text-anchor="middle">RECIPIENTS</text>
+  <text x="620" cy="380" font-family="Arial" font-size="16" fill="#3b82f6" text-anchor="middle">RECIPIENTS</text>
+  <text x="150" cy="130" font-family="Arial" font-size="16" fill="#3b82f6" text-anchor="middle">SCHEDULE</text>
+</svg>
