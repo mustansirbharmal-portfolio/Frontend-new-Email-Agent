@@ -3,10 +3,23 @@ import { getGmailAuthUrl, getGmailStatus } from "./api";
 // Function to initiate the Gmail OAuth flow
 export async function initiateGmailAuth() {
   try {
-    const { authUrl } = await getGmailAuthUrl();
+    const response = await fetch('https://email-backend-lhx2.onrender.com/api/gmail/auth', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Authentication failed: ${response.statusText}`);
+    }
+
+    const { authUrl } = await response.json();
     if (!authUrl) {
       throw new Error('No authentication URL received');
     }
+    
     console.log('Gmail Auth Initiated:', { authUrl });
     window.location.href = authUrl;
     return true;
