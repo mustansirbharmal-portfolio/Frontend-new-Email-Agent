@@ -4,11 +4,15 @@ import { getGmailAuthUrl, getGmailStatus } from "./api";
 export async function initiateGmailAuth() {
   try {
     const { authUrl } = await getGmailAuthUrl();
+    if (!authUrl) {
+      throw new Error('No authentication URL received');
+    }
+    console.log('Gmail Auth Initiated:', { authUrl });
     window.location.href = authUrl;
     return true;
   } catch (error) {
-    console.error("Failed to get Gmail auth URL:", error);
-    throw error;
+    console.error('Error during Gmail authentication:', error.message);
+    throw new Error(`Failed to authenticate Gmail: ${error.message}`);
   }
 }
 
@@ -16,19 +20,19 @@ export async function initiateGmailAuth() {
 export async function checkGmailConnection() {
   try {
     const response = await getGmailStatus();
+    console.log('Gmail Connection Status:', response);
     
-    // Log the response for debugging
-    console.log("Gmail connection status response:", response);
-    
-    // Even if the API call succeeds, make sure we have a proper response
     if (!response) {
+      console.warn('No response received from Gmail status check');
       return { connected: false, email: null };
     }
     
-    return response;
+    return {
+      connected: Boolean(response.connected),
+      email: response.email || null
+    };
   } catch (error) {
-    console.error("Failed to check Gmail connection:", error);
-    // Return a default response instead of throwing to prevent UI errors
+    console.error('Error fetching Gmail connection status:', error.message);
     return { connected: false, email: null };
   }
 }
