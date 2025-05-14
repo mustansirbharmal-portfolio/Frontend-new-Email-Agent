@@ -1,14 +1,7 @@
 import { queryClient } from "./queryClient";
 
-// Get the API base URL from environment variables or use a default
-const getApiUrl = () => {
-  // When in development or using Vite's dev server with proxy
-  if (import.meta.env.DEV) {
-    return '';
-  }
-  // In production, use the environment variable or our deployed backend URL
-  return import.meta.env.VITE_API_URL || 'https://email-backend-lhx2.onrender.com';
-};
+// Always use the production URL
+const getApiUrl = () => 'https://email-backend-lhx2.onrender.com';
 
 // Base API functions
 export async function fetchAPI<T>(url: string, options?: RequestInit): Promise<T> {
