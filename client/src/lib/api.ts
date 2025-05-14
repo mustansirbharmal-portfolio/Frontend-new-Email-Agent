@@ -14,14 +14,14 @@ const getApiUrl = () => {
 export async function fetchAPI<T>(url: string, options?: RequestInit): Promise<T> {
   const apiUrl = getApiUrl();
   const fullUrl = url.startsWith('/') ? `${apiUrl}${url}` : `${apiUrl}/${url}`;
-  
+
   const response = await fetch(fullUrl, {
     ...options,
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
       ...options?.headers,
     },
-    credentials: "include",
   });
 
   if (!response.ok) {
@@ -70,13 +70,13 @@ export async function sendEmail(data: {
     method: "POST",
     body: JSON.stringify(data),
   });
-  
+
   // Invalidate queries after sending an email
   await queryClient.invalidateQueries({ queryKey: ["/api/emails"] });
   if (data.scheduledFor) {
     await queryClient.invalidateQueries({ queryKey: ["/api/emails/scheduled"] });
   }
-  
+
   return response;
 }
 
@@ -93,11 +93,11 @@ export async function deleteEmail(id: number) {
   const response = await fetchAPI(`/api/emails/${id}`, {
     method: "DELETE",
   });
-  
+
   // Invalidate queries after deleting an email
   await queryClient.invalidateQueries({ queryKey: ["/api/emails"] });
   await queryClient.invalidateQueries({ queryKey: ["/api/emails/scheduled"] });
-  
+
   return response;
 }
 
@@ -111,10 +111,10 @@ export async function createRecipient(data: {
     method: "POST",
     body: JSON.stringify(data),
   });
-  
+
   // Invalidate queries after creating a recipient
   await queryClient.invalidateQueries({ queryKey: ["/api/recipients"] });
-  
+
   return response;
 }
 
@@ -127,10 +127,10 @@ export async function deleteRecipient(id: number) {
   const response = await fetchAPI(`/api/recipients/${id}`, {
     method: "DELETE",
   });
-  
+
   // Invalidate queries after deleting a recipient
   await queryClient.invalidateQueries({ queryKey: ["/api/recipients"] });
-  
+
   return response;
 }
 
@@ -143,10 +143,10 @@ export async function createRecipientList(data: {
     method: "POST",
     body: JSON.stringify(data),
   });
-  
+
   // Invalidate queries after creating a list
   await queryClient.invalidateQueries({ queryKey: ["/api/recipient-lists"] });
-  
+
   return response;
 }
 
@@ -158,10 +158,10 @@ export async function deleteRecipientList(id: number) {
   const response = await fetchAPI(`/api/recipient-lists/${id}`, {
     method: "DELETE",
   });
-  
+
   // Invalidate queries after deleting a list
   await queryClient.invalidateQueries({ queryKey: ["/api/recipient-lists"] });
-  
+
   return response;
 }
 
