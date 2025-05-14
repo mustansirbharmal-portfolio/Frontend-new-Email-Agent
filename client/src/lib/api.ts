@@ -6,8 +6,8 @@ const getApiUrl = () => {
   if (import.meta.env.DEV) {
     return '';
   }
-  // In production, use the environment variable
-  return import.meta.env.VITE_API_URL || '';
+  // In production, use the environment variable or our deployed backend URL
+  return import.meta.env.VITE_API_URL || 'https://email-backend-lhx2.onrender.com';
 };
 
 // Base API functions
